@@ -1,0 +1,72 @@
+<!doctype
+	html>
+
+<?xml version="3.0"?>
+
+<hr class=fa-x/>
+
+<!-- one-line -- -- comment -->
+
+<p:>Paragraph.
+
+Pre-chomment<#>Chomment!
+   <i>within</>
+   <b/bold>
+   <div:>Same line.
+      Inside div inside chomment.
+   <#>Nested chomment!</#></> and post.
+
+<#/ In-tag chomment.>
+
+pre-block<u _unused=match
+      ><div:><#:><b:>
+   comment block<unclosed>
+   <!-- runaway
+</u _unused=match>
+
+<p>Jet<#:>
+way!</>
+
+<block1:>
+   Block!
+   <b :>
+      Bold with no leading newline
+      and two trailing spaces.  <#/>
+   Line with newline.
+   <#/>
+
+<!-- multi-line comment
+   with <b>html</b> in it
+   and <unmatched> and <illegal
+   -->
+
+Tags and <z:span xy:class=中文 中文=class>attributes
+with colons</> and <b/Unicode>.
+
+<tag:split disabled
+   ></>
+
+   <empty:>
+   <i    ><test:>
+      unused indentation
+      blank lines
+
+
+      line 2
+      <b>line 3</>
+      <p:>internal paragraph
+      <h2:>
+         This is a header.
+      last line
+
+</><#>end italics</#>
+
+<div
+   style='width:100%;'
+   class="x y" xőp=333 id=test>
+   open <b>bold</> div
+</div id=test>
+
+<eof :>
+   before blank line
+

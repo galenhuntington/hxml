@@ -278,7 +278,11 @@ ghc --make -O hxml.hs
 ```
 
 Then you can run the executable `hxml`, which is suitable for batch
-use, say as part of a build system.
+use, say as part of a build system:
+
+```bash
+hxml < main.hxml > main.html
+```
 
 Instead of the Haskell Platform you can install dependencies either
 through your package manager, or through Cabal, e.g.,

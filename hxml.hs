@@ -307,13 +307,13 @@ parseLines ls =
             "file ended with unclosed " <> renderOpen tag
       (Right ch, _)        -> Right ch
 
---  Unlike lines, reserves final newlines.
+--  Unlike lines, preserves final newlines.
 lines' :: Bytes -> [Bytes]
 lines' s = maybe [s] (\n -> let (a, b) = BL.splitAt n s in a : lines' b) $
          (+1) <$> BLC.elemIndex '\n' s
 
-compileHxml :: Bytes -> Either MyError Chunk
-compileHxml = parseLines . lines'
+compileHxml :: Bytes -> Either MyError Bytes
+compileHxml = fmap BLC.pack . parseLines . lines'
 
 main :: IO ()
 main = do
@@ -321,5 +321,5 @@ main = do
    let put h str  = hSetBinaryMode h True >> hPutStr h str
    case compileHxml inp of
       Left err -> put stderr $ "error:\n" <> show err <> "\n"
-      Right str -> put stdout str
+      Right str -> BL.hPut stdout str
 

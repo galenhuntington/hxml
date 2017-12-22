@@ -318,7 +318,8 @@ compileHxml = parseLines . lines'
 main :: IO ()
 main = do
    inp <- BL.hGetContents stdin
+   let put h str  = hSetBinaryMode h True >> hPutStr h str
    case compileHxml inp of
-      Left err -> hPutStrLn stderr $ "error:\n" <> show err
-      Right str -> hSetBinaryMode stdout True >> putStr str
+      Left err -> put stderr $ "error:\n" <> show err <> "\n"
+      Right str -> put stdout str
 

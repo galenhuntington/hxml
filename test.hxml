@@ -5,11 +5,11 @@
 
 <hr class=fa-x/>
 
-<!-- one-line -- -- comment -->
+<!-- one-line - - comment -->
 
 <p:>Paragraph.
 
-Pre-chomment<#>Chomment!
+<p:>Pre-chomment<#>Chomment!
    <i>within</>
    <b/bold>
    <div:>Same line.
@@ -29,6 +29,7 @@ way!</>
 
 <block1:>
    Block!
+   <div id=selfclosing/>
    <b :>
       Bold with no leading newline
       and two trailing spaces.  <#/>

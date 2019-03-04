@@ -15,9 +15,8 @@ This syntax was developed as part of a larger ecosystem written in
 Haskell (called `gxml`).  However, this part was useful on its own,
 and so I extracted it into one standalone file of Haskell source.
 
-You do not need to know any Haskell to use it, and I have re-written
-it to avoid all dependencies but a Haskell Platform install.
-See __Installation and use__ below.
+You do not need to know any Haskell to use it See __Installation and
+use__ below.
 
 
 ##  Features
@@ -26,6 +25,7 @@ See __Installation and use__ below.
 
 `hxml` checks your HTML for unclosed or wrongly-closed tags.  All tags
 must be closed, or self-closed such as `<img src="picture.png"/>`.
+This follows XML/XHTML style.
 
 ###  Generalized tag closing
 
@@ -175,12 +175,20 @@ although I may try different approaches in the future.
 
 ###  Empty content
 
-In XML a self-closed tag is equivalent to a tag with no content, but
-not all browsers treat them the same, so users may want control over
-which is rendered.  `hxml`'s approach is simply to preserve the input.
-Thus, `<br/>` remains `<br/>`, while `<textarea></>` expands to
-`<textarea></textarea>`.  `<textarea/Text>` will still expand to
-`<textarea>Text</textarea>`.
+In XML a self-closed tag is equivalent to a tag with no content,
+but in HTML5 tags are never self-closed, and instead are either
+inherently contentful or contentless (“void”).  Closing a void tag
+is an error, and a contentful one must have a separate closing tag.
+Final slashes as in `<hr/>` may be present but are ignored.
+
+`hxml` has a list of non-void HTML5 tags, and always expands them
+to include a distinct closing tag.  So, `<div/>` and `<i class=fa/>`
+compile to `<div></div>` and `<i class=fa></i>`.
+
+For other tags, `hxml` simply preserves the input.  So, `<br/>`
+stays the same, and `<br></br>` would not be compressed (but no one
+should write that).  If a new tag is not on `hxml`'s list and needs
+to be closed, write out `<new></>` to assure a closing tag.
 
 ###  Whitespace
 
@@ -192,7 +200,6 @@ last line of the block.  If space is desired before the closing tag,
 you'll have to fit it in somehow, say with a space at the end of the
 last line.  Chomments can help visually here, such as the empty `<#/>`.
 If you require a newline, a line with only the indent can be added.
-
 It might be simpler to use `</>` in some cases.
 
 Controlling space after the opening tag is easier.  `hxml` also
@@ -228,9 +235,9 @@ practice, and so for now I am leaving it.
 Error reporting should be pretty good.  I initially wrote `hxml` using
 [Megaparsec](https://hackage.haskell.org/package/megaparsec), but
 rewrote it to use [Parsec](https://hackage.haskell.org/package/parsec),
-since it is more standard and ships with the Haskell Platform.
-However, Parsec's error mechanisms are different and not everything
-translated elegantly.
+since it was more standard.  I then rewrote it back into Megaparsec.
+As such, the code may be a bit rough around the edges as of this
+writing.
 
 ###  Other
 
@@ -260,40 +267,17 @@ As usual, beware when mixing tabs and spaces.
 
 ##  Installation and use
 
-You will need to install GHC, and normally you'll want the whole
-Haskell Platform.
+You will need to install GHC or Stack, and use `cabal install` or
+`stack install` to build a library and executable.
 
-`hxml.hs` is a standalone file that can be run with `runghc` (or its
-alias `runhaskell`) and takes `stdin` to `stdout`, e.g.:
-
-```bash
-runghc hxml.hs < main.hxml > main.html
-```
-
-This compiles the code each time without optimization, so for long-term
-use it's better to compile it:
-
-```bash
-ghc --make -O hxml.hs
-```
-
-Then you can run the executable `hxml`, which is suitable for batch
-use, say as part of a build system:
+The executable is simple:
 
 ```bash
 hxml < main.hxml > main.html
 ```
 
-Instead of the Haskell Platform you can install dependencies either
-through your package manager, or through Cabal, e.g.,
-
-```bash
-cabal update
-cabal install parsec
-```
-
 If your application is written in Haskell, you can also use
-the `compileHxml` function directly.  As an example, I write
+the `parseHxml` function directly.  As an example, I write
 [Heist](https://hackage.haskell.org/package/heist) templates in `hxml`.
 
 Feedback is welcome!

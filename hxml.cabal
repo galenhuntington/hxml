@@ -1,0 +1,47 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 31431f6f1d87fa43dd92446bb7f8f12758fa1dd4e027ac694df520402360c368
+
+name:           hxml
+version:        0.2.0
+synopsis:       Indentation-style writing of HTML/XML.
+category:       Web
+maintainer:     Galen Huntington <galen@alumni.reed.edu>
+license:        MIT
+build-type:     Simple
+
+library
+  exposed-modules:
+      Hxml
+  other-modules:
+      Paths_hxml
+  hs-source-dirs:
+      ./.
+  build-depends:
+      base >=4.9 && <5
+    , bytestring >=0.10 && <0.11
+    , containers >=0.6 && <0.7
+    , megaparsec >=7 && <8
+    , mtl >=2.2 && <2.3
+    , transformers >=0.5 && <0.6
+  default-language: Haskell2010
+
+executable hxml
+  main-is: main.hs
+  other-modules:
+      Hxml
+      Paths_hxml
+  hs-source-dirs:
+      ./.
+  build-depends:
+      base >=4.9 && <5
+    , bytestring >=0.10 && <0.11
+    , containers >=0.6 && <0.7
+    , megaparsec >=7 && <8
+    , mtl >=2.2 && <2.3
+    , transformers >=0.5 && <0.6
+  default-language: Haskell2010

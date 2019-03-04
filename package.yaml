@@ -1,0 +1,23 @@
+name: hxml
+version: 0.2.0
+synopsis: Indentation-style writing of HTML/XML.
+maintainer: Galen Huntington <galen@alumni.reed.edu>
+license: MIT
+category: Web
+
+source-dirs:
+   - .
+
+dependencies:
+   - base >= 4.9 && < 5
+   - megaparsec >=7 && < 8
+   - mtl >= 2.2 && < 2.3
+   - containers >= 0.6 && < 0.7
+   - bytestring >= 0.10 && < 0.11
+   - transformers >= 0.5 && < 0.6
+
+library: {}
+
+executable:
+   main: main.hs
+

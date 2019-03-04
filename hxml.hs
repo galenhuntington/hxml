@@ -122,7 +122,7 @@ parseTag = do
                False : True : _ -> fail "illegal block tag mix"
                _                -> pure ()
             when (not$null sp) $
-               void $ some $ oneOf "\r\n"
+               void $ many $ oneOf "\r\n"
             putState $ ((True, tdata) : stk)
             pure $ renderOpen tdata
 

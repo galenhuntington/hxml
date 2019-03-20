@@ -1,6 +1,6 @@
 import System.IO
 import qualified Data.ByteString.Lazy as BL
-import Hxml
+import Text.Hxml
 
 main :: IO ()
 main = do

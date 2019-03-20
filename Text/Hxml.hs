@@ -1,6 +1,6 @@
 {-# LANGUAGE MultiWayIf, OverloadedStrings, ScopedTypeVariables #-}
 
-module Hxml (parseHxml) where
+module Text.Hxml (parseHxml) where
 
 --  Prelude-like
 import Control.Monad
@@ -33,7 +33,6 @@ type Chunk = Builder
 
 type TagData = (Bytes, [Attr])
 type MyState = [(Bool, TagData)]
--- type MyError = ParseError Char ()
 type MyError = ParseErrorBundle Bytes Void
 
 --  Name and value including quotes.

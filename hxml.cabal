@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.1.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 31431f6f1d87fa43dd92446bb7f8f12758fa1dd4e027ac694df520402360c368
+-- hash: 646a36787204956b8d0517ad70cf6d68dd8c66ba9d367b7b6cd2128e0d5a5cb7
 
 name:           hxml
-version:        0.2.0
+version:        0.3.0
 synopsis:       Indentation-style writing of HTML/XML.
 category:       Web
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
@@ -16,7 +16,7 @@ build-type:     Simple
 
 library
   exposed-modules:
-      Hxml
+      Text.Hxml
   other-modules:
       Paths_hxml
   hs-source-dirs:
@@ -33,7 +33,7 @@ library
 executable hxml
   main-is: main.hs
   other-modules:
-      Hxml
+      Text.Hxml
       Paths_hxml
   hs-source-dirs:
       ./.

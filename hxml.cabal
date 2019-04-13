@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 646a36787204956b8d0517ad70cf6d68dd8c66ba9d367b7b6cd2128e0d5a5cb7
+-- hash: 185f9fb966872309ae92bbba3160f483cbcdd75014b6ab4aaf16deca7881e034
 
 name:           hxml
-version:        0.3.0
+version:        0.3.1
 synopsis:       Indentation-style writing of HTML/XML.
 category:       Web
 maintainer:     Galen Huntington <galen@alumni.reed.edu>

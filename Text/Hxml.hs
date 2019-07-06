@@ -316,19 +316,21 @@ dedent d = loop 0 where
       _                -> bs
 
 --  First argument is basic line, all lines more indented than the next
---  line under it are then collected, skipping blank lines.
+--  non-blank line under it are then collected, skipping blank lines.
 --  Returns split of indented set and rest.
 handleIndent :: Bytes -> [Bytes] -> ([Bytes], [Bytes])
-handleIndent _  []        = ([], [])
-handleIndent l0 ls@(l1:_) = if indentSize l0 >= ind then ([], ls) else loop ls where
-   ind = indentSize l1
-   proc l = indentOf l0 <> dedent ind l
-   loop ls' =  -- ugly?
-      case key of
-         l:_ | indentSize l >= ind
-            -> let (a, b) = loop rest in (bls ++ proc l : a, b)
-         _  -> ([], ls')
-      where (bls, (key, rest)) = second (splitAt 1) $ span isBlankLine ls'
+handleIndent l0 ls =
+   case dropWhile isBlankLine ls of
+      []   -> ([], ls)
+      l1:_ -> if indentSize l0 >= ind then ([], ls) else loop ls where
+         ind = indentSize l1
+         proc l = indentOf l0 <> dedent ind l
+         loop ls' =  -- ugly?
+            case key of
+               l:_ | indentSize l >= ind
+                  -> let (a, b) = loop rest in (bls ++ proc l : a, b)
+               _  -> ([], ls')
+            where (bls, (key, rest)) = second (splitAt 1) $ span isBlankLine ls'
 
 --  Add to end or before final newline sequence.
 --  TODO combine with below somehow?

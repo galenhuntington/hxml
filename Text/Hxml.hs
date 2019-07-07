@@ -133,7 +133,7 @@ parseSpecial :: Parser Builder
 parseSpecial = do
    a <- try (chunk "<!") <|> try (chunk "<?")
    b <- manyTill anySingle ((eof >> fail ("runaway " <> show a)) <|> char '>')
-   return $ lz a <> ws b <> lz ">"
+   pure $ lz a <> ws b <> lz ">"
 
 parseAttrVal :: Parser Bytes
 parseAttrVal = parseQ <|> parseId where
@@ -153,8 +153,8 @@ parseTag = do
          void $ some spaceChar -- <|> fail "tag syntax error"
          nm <- parseId
          attr <- optional $ char '=' >> parseAttrVal
-         return (nm, attr)
-      return (tag, attrs)
+         pure (nm, attr)
+      pure (tag, attrs)
    if clo
    then do
       --  Close tag.
@@ -178,7 +178,7 @@ parseTag = do
          Nothing -> do
             noInner
             modify ((False, tdata) :)
-            return $ renderOpen tdata
+            pure $ renderOpen tdata
          --  Self-closed.
          Just '/' -> do
             pure $ if

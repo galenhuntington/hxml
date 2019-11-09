@@ -10,7 +10,7 @@ source-dirs:
 
 dependencies:
    - base >= 4.9 && < 5
-   - megaparsec >=7 && < 8
+   - megaparsec >= 8 && < 9
    - mtl >= 2.2 && < 2.3
    - containers >= 0.6 && < 0.7
    - bytestring >= 0.10 && < 0.11

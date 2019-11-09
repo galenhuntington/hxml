@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 37545086f59de5aed2e9ebf235472a7abefbabae82eb2704ddb6c802c1d5bd1a
+-- hash: bf8668efa327dcde4a2bdb7ff040b141d2c65932ca925c8af52d4e6e0475e4e6
 
 name:           hxml
 version:        0.4.1
@@ -25,7 +25,7 @@ library
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=7 && <8
+    , megaparsec >=8 && <9
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010
@@ -41,7 +41,7 @@ executable hxml
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=7 && <8
+    , megaparsec >=8 && <9
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010

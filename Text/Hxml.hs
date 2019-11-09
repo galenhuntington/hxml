@@ -219,7 +219,7 @@ minMunch []     = error "minMunch called with nothing"
 minMunch (s:ss) = do
    (ln, st) <- lift get
    let tup = liftA2 (,)
-   let pstate = M.State s 0 $ lineToPosState s ln
+   let pstate = M.State s 0 (lineToPosState s ln) []
    case flip evalState st $ runParserT' (tup parseLine (tup getLineNo get)) pstate of
       (_, Left err) {- verify it's a runaway error? -} ->
          case ss of

@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bf8668efa327dcde4a2bdb7ff040b141d2c65932ca925c8af52d4e6e0475e4e6
+-- hash: 952e9dbb2f6a33bd9821ffcbe787d97a65a02ebfea54be6fed382b21377ddf82
 
 name:           hxml
-version:        0.4.1
+version:        0.4.2
 synopsis:       Indentation-style writing of HTML/XML.
 category:       Web
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
@@ -25,7 +25,7 @@ library
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=8 && <9
+    , megaparsec >=7 && <8.1
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010
@@ -41,7 +41,7 @@ executable hxml
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=8 && <9
+    , megaparsec >=7 && <8.1
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010

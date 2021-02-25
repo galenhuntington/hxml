@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 952e9dbb2f6a33bd9821ffcbe787d97a65a02ebfea54be6fed382b21377ddf82
+-- hash: b9ade9dceb9d949470bd39f0d6c2bd53a6e9a6225b8d93f0586e62c68daa5012
 
 name:           hxml
 version:        0.4.2
@@ -25,7 +25,7 @@ library
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=7 && <8.1
+    , megaparsec >=7 && <10
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010
@@ -41,7 +41,7 @@ executable hxml
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
     , containers >=0.6 && <0.7
-    , megaparsec >=7 && <8.1
+    , megaparsec >=7 && <10
     , mtl >=2.2 && <2.3
     , transformers >=0.5 && <0.6
   default-language: Haskell2010

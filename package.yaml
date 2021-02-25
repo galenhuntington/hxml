@@ -1,5 +1,5 @@
 name: hxml
-version: 0.4.2
+version: 0.4.3
 synopsis: Indentation-style writing of HTML/XML.
 maintainer: Galen Huntington <galen@alumni.reed.edu>
 license: MIT

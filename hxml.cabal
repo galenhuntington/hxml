@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b9ade9dceb9d949470bd39f0d6c2bd53a6e9a6225b8d93f0586e62c68daa5012
+-- hash: e3a38f241402811b3abff8303daa7de2ecaff9660855607a5386085b76dd693b
 
 name:           hxml
-version:        0.4.2
+version:        0.4.3
 synopsis:       Indentation-style writing of HTML/XML.
 category:       Web
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
@@ -20,14 +20,14 @@ library
   other-modules:
       Paths_hxml
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       base >=4.9 && <5
-    , bytestring >=0.10 && <0.11
-    , containers >=0.6 && <0.7
+    , bytestring >=0.10 && <0.12
+    , containers ==0.6.*
     , megaparsec >=7 && <10
-    , mtl >=2.2 && <2.3
-    , transformers >=0.5 && <0.6
+    , mtl >=2.2 && <2.4
+    , transformers >=0.5 && <0.7
   default-language: Haskell2010
 
 executable hxml
@@ -36,12 +36,12 @@ executable hxml
       Text.Hxml
       Paths_hxml
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       base >=4.9 && <5
-    , bytestring >=0.10 && <0.11
-    , containers >=0.6 && <0.7
+    , bytestring >=0.10 && <0.12
+    , containers ==0.6.*
     , megaparsec >=7 && <10
-    , mtl >=2.2 && <2.3
-    , transformers >=0.5 && <0.6
+    , mtl >=2.2 && <2.4
+    , transformers >=0.5 && <0.7
   default-language: Haskell2010

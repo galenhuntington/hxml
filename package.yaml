@@ -1,5 +1,5 @@
 name: hxml
-version: 0.4.3
+version: 0.4.4
 synopsis: Indentation-style writing of HTML/XML.
 maintainer: Galen Huntington <galen@alumni.reed.edu>
 license: MIT
@@ -13,7 +13,7 @@ dependencies:
    - megaparsec >= 7 && < 10
    - mtl >= 2.2 && < 2.4
    - containers >= 0.6 && < 0.7
-   - bytestring >= 0.10 && < 0.12
+   - bytestring >= 0.10 && < 0.13
    - transformers >= 0.5 && < 0.7
 
 library: {}

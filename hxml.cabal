@@ -1,47 +1,34 @@
-cabal-version: 1.12
-
--- This file has been generated from package.yaml by hpack version 0.37.0.
---
--- see: https://github.com/sol/hpack
---
--- hash: 98a7035fa7979573602ea782111e5c516fd2d75498f2e438413624d413cabed6
+cabal-version: 2.2
 
 name:           hxml
-version:        0.4.5
+version:        0.4.6
 synopsis:       Indentation-style writing of HTML/XML.
 category:       Web
-maintainer:     Galen Huntington <galen@alumni.reed.edu>
+author:         Galen Huntington <galen.huntington@gmail.com>
+maintainer:     Galen Huntington <galen.huntington@gmail.com>
 license:        MIT
 build-type:     Simple
 
-library
-  exposed-modules:
-      Text.Hxml
-  other-modules:
-      Paths_hxml
-  hs-source-dirs:
-      ./
+common shared
+  hs-source-dirs: .
   build-depends:
-      base >=4.9 && <5
-    , bytestring >=0.10 && <0.13
-    , containers >=0.6 && <0.9
-    , megaparsec >=7 && <10
-    , mtl >=2.2 && <2.4
-    , transformers >=0.5 && <0.7
+    base >=4.9 && <5,
+    bytestring >=0.10 && <0.13,
+    containers >=0.6 && <0.9,
+    megaparsec >=7 && <10,
+    mtl >=2.2 && <2.4,
+    transformers >=0.5 && <0.7,
   default-language: Haskell2010
 
+library
+  import: shared
+  exposed-modules:
+    Text.Hxml
+
 executable hxml
+  import: shared
   main-is: main.hs
   other-modules:
-      Text.Hxml
-      Paths_hxml
-  hs-source-dirs:
-      ./
-  build-depends:
-      base >=4.9 && <5
-    , bytestring >=0.10 && <0.13
-    , containers >=0.6 && <0.9
-    , megaparsec >=7 && <10
-    , mtl >=2.2 && <2.4
-    , transformers >=0.5 && <0.7
+    Text.Hxml
   default-language: Haskell2010
+

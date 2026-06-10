@@ -158,7 +158,7 @@ parseTag = do
    if clo
    then do
       --  Close tag.
-      void $ char '>'
+      void $ many spaceChar >> char '>'
       stk <- get
       case stk of
          ((False, tdata') : rest) | closes tdatam tdata' -> do

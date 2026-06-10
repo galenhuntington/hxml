@@ -235,7 +235,7 @@ minMunch (s:ss) = do
 renderAttrVal :: Bytes -> Builder
 renderAttrVal v = case BLC.uncons v of
    Just (x, _) | x == '\'' || x == '\"' -> lz v
-               | __                     -> "\"" <> lz v <> "\""
+   _                                    -> "\"" <> lz v <> "\""
 
 --  Inserts a preceding space always.
 renderAttr :: Attr -> Builder

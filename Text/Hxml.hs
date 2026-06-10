@@ -87,16 +87,16 @@ nonVoids = Set.fromList [
    "main", "map", "mark", "menu", "menuitem", "meter",
    "nav", "noframes", "noscript",
    "object", "ol", "optgroup", "option", "output",
-   "p", "pre", "progress",
+   "p", "picture", "pre", "progress",
    "q",
    "rb", "rp", "rt", "rtc", "ruby",
-   "s", "samp", "script", "section", "select", "small", "source", "span",
-       "strike", "strong", "style", "sub", "summary", "sup",
+   "s", "samp", "script", "search", "section", "select", "slot", "small",
+       "span", "strike", "strong", "style", "sub", "summary", "sup",
    "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead",
        "time", "title", "tr", "tt",
    "u", "ul",
    "var", "video",
-   "svg"  -- since commonly used
+   "math", "svg"  -- since commonly used
    ]
 
 lz :: Bytes -> Builder
